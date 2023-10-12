@@ -118,7 +118,7 @@ jobs:
           echo "checking characters 13";
           curl https://anilist.co/sitemap/characters-13.xml | grep -Eo "character/([0-9]+)" | cut -d/ -f2 > character_ids.txt
           echo "checking articles 0";
-          curl https://anilist.co/sitemap/articles-0.xml | grep -Eo "article/([0-9]+)" | cut -d/ -f2 > articles_ids.txt
+          curl https://anilist.co/sitemap/articles-0.xml | grep -Eo "article/([^/]+)" | cut -d/ -f2 | sed 's/.$//' > articles_ids.txt
 
       - name: Commit files
         run: |
