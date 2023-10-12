@@ -26,42 +26,79 @@ jobs:
         shell: bash
         run: |
           curl https://anilist.co/sitemap/manga-0.xml | grep -Eo "manga/([0-9]+)" | cut -d/ -f2 > manga_ids.txt
+          sleep 10
           curl https://anilist.co/sitemap/manga-1.xml | grep -Eo "manga/([0-9]+)" | cut -d/ -f2 > manga_ids.txt
+          sleep 10
           curl https://anilist.co/sitemap/manga-2.xml | grep -Eo "manga/([0-9]+)" | cut -d/ -f2 > manga_ids.txt
+          sleep 10
           curl https://anilist.co/sitemap/manga-3.xml | grep -Eo "manga/([0-9]+)" | cut -d/ -f2 > manga_ids.txt
+          sleep 10
           curl https://anilist.co/sitemap/manga-4.xml | grep -Eo "manga/([0-9]+)" | cut -d/ -f2 > manga_ids.txt
+          sleep 10
           curl https://anilist.co/sitemap/manga-5.xml | grep -Eo "manga/([0-9]+)" | cut -d/ -f2 > manga_ids.txt
+          sleep 10
           curl https://anilist.co/sitemap/manga-6.xml | grep -Eo "manga/([0-9]+)" | cut -d/ -f2 > manga_ids.txt
+          sleep 10
           curl https://anilist.co/sitemap/anime-0.xml | grep -Eo "anime/([0-9]+)" | cut -d/ -f2 > anime_ids.txt
+          sleep 10
           curl https://anilist.co/sitemap/anime-2.xml | grep -Eo "anime/([0-9]+)" | cut -d/ -f2 > anime_ids.txt
+          sleep 10
           curl https://anilist.co/sitemap/staff-0.xml | grep -Eo "staff/([0-9]+)" | cut -d/ -f2 > staff_ids.txt
+          sleep 10
           curl https://anilist.co/sitemap/staff-1.xml | grep -Eo "staff/([0-9]+)" | cut -d/ -f2 > staff_ids.txt
+          sleep 10
           curl https://anilist.co/sitemap/staff-2.xml | grep -Eo "staff/([0-9]+)" | cut -d/ -f2 > staff_ids.txt
+          sleep 10
           curl https://anilist.co/sitemap/staff-3.xml | grep -Eo "staff/([0-9]+)" | cut -d/ -f2 > staff_ids.txt
+          sleep 10
           curl https://anilist.co/sitemap/staff-4.xml | grep -Eo "staff/([0-9]+)" | cut -d/ -f2 > staff_ids.txt
+          sleep 10
           curl https://anilist.co/sitemap/staff-5.xml | grep -Eo "staff/([0-9]+)" | cut -d/ -f2 > staff_ids.txt
+          sleep 10
           curl https://anilist.co/sitemap/staff-6.xml | grep -Eo "staff/([0-9]+)" | cut -d/ -f2 > staff_ids.txt
+          sleep 10
           curl https://anilist.co/sitemap/staff-7.xml | grep -Eo "staff/([0-9]+)" | cut -d/ -f2 > staff_ids.txt
+          sleep 10
           curl https://anilist.co/sitemap/staff-8.xml | grep -Eo "staff/([0-9]+)" | cut -d/ -f2 > staff_ids.txt
+          sleep 10
           curl https://anilist.co/sitemap/staff-9.xml | grep -Eo "staff/([0-9]+)" | cut -d/ -f2 > staff_ids.txt
+          sleep 10
           curl https://anilist.co/sitemap/staff-10.xml | grep -Eo "staff/([0-9]+)" | cut -d/ -f2 > staff_ids.txt
+          sleep 10
           curl https://anilist.co/sitemap/staff-11.xml | grep -Eo "staff/([0-9]+)" | cut -d/ -f2 > staff_ids.txt
+          sleep 10
           curl https://anilist.co/sitemap/staff-12.xml | grep -Eo "staff/([0-9]+)" | cut -d/ -f2 > staff_ids.txt
+          sleep 10
           curl https://anilist.co/sitemap/staff-13.xml | grep -Eo "staff/([0-9]+)" | cut -d/ -f2 > staff_ids.txt
+          sleep 10
           curl https://anilist.co/sitemap/characters-0.xml | grep -Eo "character/([0-9]+)" | cut -d/ -f2 > character_ids.txt
+          sleep 10
           curl https://anilist.co/sitemap/characters-1.xml | grep -Eo "character/([0-9]+)" | cut -d/ -f2 > character_ids.txt
+          sleep 10
           curl https://anilist.co/sitemap/characters-2.xml | grep -Eo "character/([0-9]+)" | cut -d/ -f2 > character_ids.txt
+          sleep 10
           curl https://anilist.co/sitemap/characters-3.xml | grep -Eo "character/([0-9]+)" | cut -d/ -f2 > character_ids.txt
+          sleep 10
           curl https://anilist.co/sitemap/characters-4.xml | grep -Eo "character/([0-9]+)" | cut -d/ -f2 > character_ids.txt
+          sleep 10
           curl https://anilist.co/sitemap/characters-5.xml | grep -Eo "character/([0-9]+)" | cut -d/ -f2 > character_ids.txt
+          sleep 10
           curl https://anilist.co/sitemap/characters-6.xml | grep -Eo "character/([0-9]+)" | cut -d/ -f2 > character_ids.txt
+          sleep 10
           curl https://anilist.co/sitemap/characters-7.xml | grep -Eo "character/([0-9]+)" | cut -d/ -f2 > character_ids.txt
+          sleep 10
           curl https://anilist.co/sitemap/characters-8.xml | grep -Eo "character/([0-9]+)" | cut -d/ -f2 > character_ids.txt
+          sleep 10
           curl https://anilist.co/sitemap/characters-9.xml | grep -Eo "character/([0-9]+)" | cut -d/ -f2 > character_ids.txt
+          sleep 10
           curl https://anilist.co/sitemap/characters-10.xml | grep -Eo "character/([0-9]+)" | cut -d/ -f2 > character_ids.txt
+          sleep 10
           curl https://anilist.co/sitemap/characters-11.xml | grep -Eo "character/([0-9]+)" | cut -d/ -f2 > character_ids.txt
+          sleep 10
           curl https://anilist.co/sitemap/characters-12.xml | grep -Eo "character/([0-9]+)" | cut -d/ -f2 > character_ids.txt
+          sleep 10
           curl https://anilist.co/sitemap/characters-13.xml | grep -Eo "character/([0-9]+)" | cut -d/ -f2 > character_ids.txt
+          sleep 10
           curl https://anilist.co/sitemap/articles-0.xml | grep -Eo "article/([0-9]+)" | cut -d/ -f2 > articles_ids.txt
 
 
