@@ -25,64 +25,100 @@ jobs:
       - name: get and parse id xmls
         shell: bash
         run: |
+          echo "checking manga 0";
           curl https://anilist.co/sitemap/manga-0.xml | grep -Eo "manga/([0-9]+)" | cut -d/ -f2 > manga_ids.txt
+          echo "checking manga 1";
           curl https://anilist.co/sitemap/manga-1.xml | grep -Eo "manga/([0-9]+)" | cut -d/ -f2 > manga_ids.txt
           sleep 5
+          echo "checking manga 2";
           curl https://anilist.co/sitemap/manga-2.xml | grep -Eo "manga/([0-9]+)" | cut -d/ -f2 > manga_ids.txt
+          echo "checking manga 3";
           curl https://anilist.co/sitemap/manga-3.xml | grep -Eo "manga/([0-9]+)" | cut -d/ -f2 > manga_ids.txt
           sleep 5
+          echo "checking manga 4";
           curl https://anilist.co/sitemap/manga-4.xml | grep -Eo "manga/([0-9]+)" | cut -d/ -f2 > manga_ids.txt
+          echo "checking manga 5";
           curl https://anilist.co/sitemap/manga-5.xml | grep -Eo "manga/([0-9]+)" | cut -d/ -f2 > manga_ids.txt
           sleep 5
+          echo "checking manga 6";
           curl https://anilist.co/sitemap/manga-6.xml | grep -Eo "manga/([0-9]+)" | cut -d/ -f2 > manga_ids.txt
+          echo "checking anime 0";
           curl https://anilist.co/sitemap/anime-0.xml | grep -Eo "anime/([0-9]+)" | cut -d/ -f2 > anime_ids.txt
           sleep 5
+          echo "checking anime 1";
           curl https://anilist.co/sitemap/anime-1.xml | grep -Eo "anime/([0-9]+)" | cut -d/ -f2 > anime_ids.txt
+          echo "checking staff 0";
           curl https://anilist.co/sitemap/staff-0.xml | grep -Eo "staff/([0-9]+)" | cut -d/ -f2 > staff_ids.txt
           sleep 5
+          echo "checking staff 1";
           curl https://anilist.co/sitemap/staff-1.xml | grep -Eo "staff/([0-9]+)" | cut -d/ -f2 > staff_ids.txt
+          echo "checking staff 2";
           curl https://anilist.co/sitemap/staff-2.xml | grep -Eo "staff/([0-9]+)" | cut -d/ -f2 > staff_ids.txt
           sleep 5
+          echo "checking staff 3";
           curl https://anilist.co/sitemap/staff-3.xml | grep -Eo "staff/([0-9]+)" | cut -d/ -f2 > staff_ids.txt
+          echo "checking staff 4";
           curl https://anilist.co/sitemap/staff-4.xml | grep -Eo "staff/([0-9]+)" | cut -d/ -f2 > staff_ids.txt
           sleep 5
+          echo "checking staff 5";
           curl https://anilist.co/sitemap/staff-5.xml | grep -Eo "staff/([0-9]+)" | cut -d/ -f2 > staff_ids.txt
+          echo "checking staff 6";
           curl https://anilist.co/sitemap/staff-6.xml | grep -Eo "staff/([0-9]+)" | cut -d/ -f2 > staff_ids.txt
           sleep 5
+          echo "checking staff 7";
           curl https://anilist.co/sitemap/staff-7.xml | grep -Eo "staff/([0-9]+)" | cut -d/ -f2 > staff_ids.txt
+          echo "checking staff 8";
           curl https://anilist.co/sitemap/staff-8.xml | grep -Eo "staff/([0-9]+)" | cut -d/ -f2 > staff_ids.txt
           sleep 5
+          echo "checking staff 9";
           curl https://anilist.co/sitemap/staff-9.xml | grep -Eo "staff/([0-9]+)" | cut -d/ -f2 > staff_ids.txt
+          echo "checking staff 10";
           curl https://anilist.co/sitemap/staff-10.xml | grep -Eo "staff/([0-9]+)" | cut -d/ -f2 > staff_ids.txt
           sleep 5
+          echo "checking staff 11";
           curl https://anilist.co/sitemap/staff-11.xml | grep -Eo "staff/([0-9]+)" | cut -d/ -f2 > staff_ids.txt
+          echo "checking staff 12";
           curl https://anilist.co/sitemap/staff-12.xml | grep -Eo "staff/([0-9]+)" | cut -d/ -f2 > staff_ids.txt
           sleep 5
+          echo "checking staff 13";
           curl https://anilist.co/sitemap/staff-13.xml | grep -Eo "staff/([0-9]+)" | cut -d/ -f2 > staff_ids.txt
+          echo "checking characters 0";
           curl https://anilist.co/sitemap/characters-0.xml | grep -Eo "character/([0-9]+)" | cut -d/ -f2 > character_ids.txt
           sleep 5
+          echo "checking characters 1";
           curl https://anilist.co/sitemap/characters-1.xml | grep -Eo "character/([0-9]+)" | cut -d/ -f2 > character_ids.txt
+          echo "checking characters 2";
           curl https://anilist.co/sitemap/characters-2.xml | grep -Eo "character/([0-9]+)" | cut -d/ -f2 > character_ids.txt
           sleep 5
+          echo "checking characters 3";
           curl https://anilist.co/sitemap/characters-3.xml | grep -Eo "character/([0-9]+)" | cut -d/ -f2 > character_ids.txt
+          echo "checking characters 4";
           curl https://anilist.co/sitemap/characters-4.xml | grep -Eo "character/([0-9]+)" | cut -d/ -f2 > character_ids.txt
           sleep 5
+          echo "checking characters 5";
           curl https://anilist.co/sitemap/characters-5.xml | grep -Eo "character/([0-9]+)" | cut -d/ -f2 > character_ids.txt
+          echo "checking characters 6";
           curl https://anilist.co/sitemap/characters-6.xml | grep -Eo "character/([0-9]+)" | cut -d/ -f2 > character_ids.txt
           sleep 5
+          echo "checking characters 7";
           curl https://anilist.co/sitemap/characters-7.xml | grep -Eo "character/([0-9]+)" | cut -d/ -f2 > character_ids.txt
+          echo "checking characters 8";
           curl https://anilist.co/sitemap/characters-8.xml | grep -Eo "character/([0-9]+)" | cut -d/ -f2 > character_ids.txt
           sleep 5
+          echo "checking characters 9";
           curl https://anilist.co/sitemap/characters-9.xml | grep -Eo "character/([0-9]+)" | cut -d/ -f2 > character_ids.txt
+          echo "checking characters 10";
           curl https://anilist.co/sitemap/characters-10.xml | grep -Eo "character/([0-9]+)" | cut -d/ -f2 > character_ids.txt
           sleep 5
+          echo "checking characters 11";
           curl https://anilist.co/sitemap/characters-11.xml | grep -Eo "character/([0-9]+)" | cut -d/ -f2 > character_ids.txt
+          echo "checking characters 12";
           curl https://anilist.co/sitemap/characters-12.xml | grep -Eo "character/([0-9]+)" | cut -d/ -f2 > character_ids.txt
           sleep 5
+          echo "checking characters 13";
           curl https://anilist.co/sitemap/characters-13.xml | grep -Eo "character/([0-9]+)" | cut -d/ -f2 > character_ids.txt
+          echo "checking articles 0";
           curl https://anilist.co/sitemap/articles-0.xml | grep -Eo "article/([0-9]+)" | cut -d/ -f2 > articles_ids.txt
-
-
 
       - name: Commit files
         run: |
