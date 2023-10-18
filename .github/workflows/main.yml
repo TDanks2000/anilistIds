@@ -26,22 +26,22 @@ jobs:
         shell: bash
         run: |
           echo "checking manga 0";
-          curl https://anilist.co/sitemap/manga-0.xml | | grep -Eo 'manga/([0-9]+)' | grep -Eo '([0-9]+)' > manga_ids.txt
+          curl https://anilist.co/sitemap/manga-0.xml | grep -Eo 'manga/([0-9]+)' | grep -Eo '([0-9]+)' > manga_ids.txt
           echo "checking manga 1";
-          curl https://anilist.co/sitemap/manga-1.xml | | grep -Eo 'manga/([0-9]+)' | grep -Eo '([0-9]+)' >> manga_ids.txt
+          curl https://anilist.co/sitemap/manga-1.xml | grep -Eo 'manga/([0-9]+)' | grep -Eo '([0-9]+)' >> manga_ids.txt
           sleep 5
           echo "checking manga 2";
-          curl https://anilist.co/sitemap/manga-2.xml | | grep -Eo 'manga/([0-9]+)' | grep -Eo '([0-9]+)' >> manga_ids.txt
+          curl https://anilist.co/sitemap/manga-2.xml | grep -Eo 'manga/([0-9]+)' | grep -Eo '([0-9]+)' >> manga_ids.txt
           echo "checking manga 3";
-          curl https://anilist.co/sitemap/manga-3.xml | | grep -Eo 'manga/([0-9]+)' | grep -Eo '([0-9]+)' >> manga_ids.txt
+          curl https://anilist.co/sitemap/manga-3.xml | grep -Eo 'manga/([0-9]+)' | grep -Eo '([0-9]+)' >> manga_ids.txt
           sleep 5
           echo "checking manga 4";
-          curl https://anilist.co/sitemap/manga-4.xml | | grep -Eo 'manga/([0-9]+)' | grep -Eo '([0-9]+)' >> manga_ids.txt
+          curl https://anilist.co/sitemap/manga-4.xml | grep -Eo 'manga/([0-9]+)' | grep -Eo '([0-9]+)' >> manga_ids.txt
           echo "checking manga 5";
-          curl https://anilist.co/sitemap/manga-5.xml | | grep -Eo 'manga/([0-9]+)' | grep -Eo '([0-9]+)' >> manga_ids.txt
+          curl https://anilist.co/sitemap/manga-5.xml | grep -Eo 'manga/([0-9]+)' | grep -Eo '([0-9]+)' >> manga_ids.txt
           sleep 5
           echo "checking manga 6";
-          curl https://anilist.co/sitemap/manga-6.xml | | grep -Eo 'manga/([0-9]+)' | grep -Eo '([0-9]+)' >> manga_ids.txt
+          curl https://anilist.co/sitemap/manga-6.xml | grep -Eo 'manga/([0-9]+)' | grep -Eo '([0-9]+)' >> manga_ids.txt
           echo "checking anime 0";
           curl https://anilist.co/sitemap/anime-0.xml | grep -Eo 'anime/([0-9]+)' | grep -Eo '([0-9]+)' > ./anime_ids.txt
           sleep 5
