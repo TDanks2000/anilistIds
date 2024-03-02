@@ -6,7 +6,7 @@ name: FetchId
 on:
   # Triggers the workflow once a day at 3 AM
   schedule:
-    - cron: "0 */12 * * *"
+    - cron: '0 */12 * * *'
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -42,6 +42,8 @@ jobs:
           sleep 5
           echo "checking manga 6";
           curl https://anilist.co/sitemap/manga-6.xml | grep -Eo 'manga/([0-9]+)' | grep -Eo '([0-9]+)' >> manga_ids.txt
+          echo "checking manga 7";
+          curl https://anilist.co/sitemap/manga-7.xml | grep -Eo 'manga/([0-9]+)' | grep -Eo '([0-9]+)' >> manga_ids.txt
           echo "checking anime 0";
           curl https://anilist.co/sitemap/anime-0.xml | grep -Eo 'anime/([0-9]+)' | grep -Eo '([0-9]+)' > ./anime_ids.txt
           sleep 5
@@ -117,6 +119,8 @@ jobs:
           sleep 5
           echo "checking characters 13";
           curl https://anilist.co/sitemap/characters-13.xml | grep -Eo "character/([0-9]+)" | cut -d/ -f2 > character_ids.txt
+          echo "checking characters 14";
+          curl https://anilist.co/sitemap/characters-14.xml | grep -Eo "character/([0-9]+)" | cut -d/ -f2 > character_ids.txt
           echo "checking articles 0";
           curl https://anilist.co/sitemap/articles-0.xml | grep -Eo "article/([^/]+)" | cut -d/ -f2 | sed 's/.$//' > articles_ids.txt
 
