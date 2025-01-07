@@ -34,7 +34,6 @@ Top-10-Action-Anime-of-2022
 Top-10-Action-Anime-of-2023
 Top-10-Action-Anime-of-2024
 Top-10-Action-Anime-of-2025
-Top-10-Action-Anime-of-2026
 Top-10-Action-Manga-of-1990
 Top-10-Action-Manga-of-1991
 Top-10-Action-Manga-of-1992
@@ -71,7 +70,6 @@ Top-10-Action-Manga-of-2022
 Top-10-Action-Manga-of-2023
 Top-10-Action-Manga-of-2024
 Top-10-Action-Manga-of-2025
-Top-10-Action-Manga-of-2026
 Top-10-Adventure-Anime-of-1990
 Top-10-Adventure-Anime-of-1991
 Top-10-Adventure-Anime-of-1992
@@ -108,7 +106,6 @@ Top-10-Adventure-Anime-of-2022
 Top-10-Adventure-Anime-of-2023
 Top-10-Adventure-Anime-of-2024
 Top-10-Adventure-Anime-of-2025
-Top-10-Adventure-Anime-of-2026
 Top-10-Adventure-Manga-of-1990
 Top-10-Adventure-Manga-of-1991
 Top-10-Adventure-Manga-of-1992
@@ -145,7 +142,6 @@ Top-10-Adventure-Manga-of-2022
 Top-10-Adventure-Manga-of-2023
 Top-10-Adventure-Manga-of-2024
 Top-10-Adventure-Manga-of-2025
-Top-10-Adventure-Manga-of-2026
 Top-10-Comedy-Anime-of-1990
 Top-10-Comedy-Anime-of-1991
 Top-10-Comedy-Anime-of-1992
@@ -182,7 +178,6 @@ Top-10-Comedy-Anime-of-2022
 Top-10-Comedy-Anime-of-2023
 Top-10-Comedy-Anime-of-2024
 Top-10-Comedy-Anime-of-2025
-Top-10-Comedy-Anime-of-2026
 Top-10-Comedy-Manga-of-1990
 Top-10-Comedy-Manga-of-1991
 Top-10-Comedy-Manga-of-1992
@@ -219,7 +214,6 @@ Top-10-Comedy-Manga-of-2022
 Top-10-Comedy-Manga-of-2023
 Top-10-Comedy-Manga-of-2024
 Top-10-Comedy-Manga-of-2025
-Top-10-Comedy-Manga-of-2026
 Top-10-Drama-Anime-of-1990
 Top-10-Drama-Anime-of-1991
 Top-10-Drama-Anime-of-1992
@@ -256,7 +250,6 @@ Top-10-Drama-Anime-of-2022
 Top-10-Drama-Anime-of-2023
 Top-10-Drama-Anime-of-2024
 Top-10-Drama-Anime-of-2025
-Top-10-Drama-Anime-of-2026
 Top-10-Drama-Manga-of-1990
 Top-10-Drama-Manga-of-1991
 Top-10-Drama-Manga-of-1992
@@ -293,7 +286,6 @@ Top-10-Drama-Manga-of-2022
 Top-10-Drama-Manga-of-2023
 Top-10-Drama-Manga-of-2024
 Top-10-Drama-Manga-of-2025
-Top-10-Drama-Manga-of-2026
 Top-10-Ecchi-Anime-of-1990
 Top-10-Ecchi-Anime-of-1991
 Top-10-Ecchi-Anime-of-1992
@@ -330,7 +322,6 @@ Top-10-Ecchi-Anime-of-2022
 Top-10-Ecchi-Anime-of-2023
 Top-10-Ecchi-Anime-of-2024
 Top-10-Ecchi-Anime-of-2025
-Top-10-Ecchi-Anime-of-2026
 Top-10-Ecchi-Manga-of-1990
 Top-10-Ecchi-Manga-of-1991
 Top-10-Ecchi-Manga-of-1992
@@ -367,7 +358,6 @@ Top-10-Ecchi-Manga-of-2022
 Top-10-Ecchi-Manga-of-2023
 Top-10-Ecchi-Manga-of-2024
 Top-10-Ecchi-Manga-of-2025
-Top-10-Ecchi-Manga-of-2026
 Top-10-Fantasy-Anime-of-1990
 Top-10-Fantasy-Anime-of-1991
 Top-10-Fantasy-Anime-of-1992
@@ -404,7 +394,6 @@ Top-10-Fantasy-Anime-of-2022
 Top-10-Fantasy-Anime-of-2023
 Top-10-Fantasy-Anime-of-2024
 Top-10-Fantasy-Anime-of-2025
-Top-10-Fantasy-Anime-of-2026
 Top-10-Fantasy-Manga-of-1990
 Top-10-Fantasy-Manga-of-1991
 Top-10-Fantasy-Manga-of-1992
@@ -441,7 +430,6 @@ Top-10-Fantasy-Manga-of-2022
 Top-10-Fantasy-Manga-of-2023
 Top-10-Fantasy-Manga-of-2024
 Top-10-Fantasy-Manga-of-2025
-Top-10-Fantasy-Manga-of-2026
 Top-10-Horror-Anime-of-1990
 Top-10-Horror-Anime-of-1991
 Top-10-Horror-Anime-of-1992
@@ -478,7 +466,6 @@ Top-10-Horror-Anime-of-2022
 Top-10-Horror-Anime-of-2023
 Top-10-Horror-Anime-of-2024
 Top-10-Horror-Anime-of-2025
-Top-10-Horror-Anime-of-2026
 Top-10-Horror-Manga-of-1990
 Top-10-Horror-Manga-of-1991
 Top-10-Horror-Manga-of-1992
@@ -515,7 +502,6 @@ Top-10-Horror-Manga-of-2022
 Top-10-Horror-Manga-of-2023
 Top-10-Horror-Manga-of-2024
 Top-10-Horror-Manga-of-2025
-Top-10-Horror-Manga-of-2026
 Top-10-Mahou%20Shoujo-Anime-of-1990
 Top-10-Mahou%20Shoujo-Anime-of-1991
 Top-10-Mahou%20Shoujo-Anime-of-1992
@@ -552,7 +538,6 @@ Top-10-Mahou%20Shoujo-Anime-of-2022
 Top-10-Mahou%20Shoujo-Anime-of-2023
 Top-10-Mahou%20Shoujo-Anime-of-2024
 Top-10-Mahou%20Shoujo-Anime-of-2025
-Top-10-Mahou%20Shoujo-Anime-of-2026
 Top-10-Mahou%20Shoujo-Manga-of-1990
 Top-10-Mahou%20Shoujo-Manga-of-1991
 Top-10-Mahou%20Shoujo-Manga-of-1992
@@ -589,7 +574,6 @@ Top-10-Mahou%20Shoujo-Manga-of-2022
 Top-10-Mahou%20Shoujo-Manga-of-2023
 Top-10-Mahou%20Shoujo-Manga-of-2024
 Top-10-Mahou%20Shoujo-Manga-of-2025
-Top-10-Mahou%20Shoujo-Manga-of-2026
 Top-10-Mecha-Anime-of-1990
 Top-10-Mecha-Anime-of-1991
 Top-10-Mecha-Anime-of-1992
@@ -626,7 +610,6 @@ Top-10-Mecha-Anime-of-2022
 Top-10-Mecha-Anime-of-2023
 Top-10-Mecha-Anime-of-2024
 Top-10-Mecha-Anime-of-2025
-Top-10-Mecha-Anime-of-2026
 Top-10-Mecha-Manga-of-1990
 Top-10-Mecha-Manga-of-1991
 Top-10-Mecha-Manga-of-1992
@@ -663,7 +646,6 @@ Top-10-Mecha-Manga-of-2022
 Top-10-Mecha-Manga-of-2023
 Top-10-Mecha-Manga-of-2024
 Top-10-Mecha-Manga-of-2025
-Top-10-Mecha-Manga-of-2026
 Top-10-Music-Anime-of-1990
 Top-10-Music-Anime-of-1991
 Top-10-Music-Anime-of-1992
@@ -700,7 +682,6 @@ Top-10-Music-Anime-of-2022
 Top-10-Music-Anime-of-2023
 Top-10-Music-Anime-of-2024
 Top-10-Music-Anime-of-2025
-Top-10-Music-Anime-of-2026
 Top-10-Music-Manga-of-1990
 Top-10-Music-Manga-of-1991
 Top-10-Music-Manga-of-1992
@@ -737,7 +718,6 @@ Top-10-Music-Manga-of-2022
 Top-10-Music-Manga-of-2023
 Top-10-Music-Manga-of-2024
 Top-10-Music-Manga-of-2025
-Top-10-Music-Manga-of-2026
 Top-10-Mystery-Anime-of-1990
 Top-10-Mystery-Anime-of-1991
 Top-10-Mystery-Anime-of-1992
@@ -774,7 +754,6 @@ Top-10-Mystery-Anime-of-2022
 Top-10-Mystery-Anime-of-2023
 Top-10-Mystery-Anime-of-2024
 Top-10-Mystery-Anime-of-2025
-Top-10-Mystery-Anime-of-2026
 Top-10-Mystery-Manga-of-1990
 Top-10-Mystery-Manga-of-1991
 Top-10-Mystery-Manga-of-1992
@@ -811,7 +790,6 @@ Top-10-Mystery-Manga-of-2022
 Top-10-Mystery-Manga-of-2023
 Top-10-Mystery-Manga-of-2024
 Top-10-Mystery-Manga-of-2025
-Top-10-Mystery-Manga-of-2026
 Top-10-Psychological-Anime-of-1990
 Top-10-Psychological-Anime-of-1991
 Top-10-Psychological-Anime-of-1992
@@ -848,7 +826,6 @@ Top-10-Psychological-Anime-of-2022
 Top-10-Psychological-Anime-of-2023
 Top-10-Psychological-Anime-of-2024
 Top-10-Psychological-Anime-of-2025
-Top-10-Psychological-Anime-of-2026
 Top-10-Psychological-Manga-of-1990
 Top-10-Psychological-Manga-of-1991
 Top-10-Psychological-Manga-of-1992
@@ -885,7 +862,6 @@ Top-10-Psychological-Manga-of-2022
 Top-10-Psychological-Manga-of-2023
 Top-10-Psychological-Manga-of-2024
 Top-10-Psychological-Manga-of-2025
-Top-10-Psychological-Manga-of-2026
 Top-10-Romance-Anime-of-1990
 Top-10-Romance-Anime-of-1991
 Top-10-Romance-Anime-of-1992
@@ -922,7 +898,6 @@ Top-10-Romance-Anime-of-2022
 Top-10-Romance-Anime-of-2023
 Top-10-Romance-Anime-of-2024
 Top-10-Romance-Anime-of-2025
-Top-10-Romance-Anime-of-2026
 Top-10-Romance-Manga-of-1990
 Top-10-Romance-Manga-of-1991
 Top-10-Romance-Manga-of-1992
@@ -959,7 +934,6 @@ Top-10-Romance-Manga-of-2022
 Top-10-Romance-Manga-of-2023
 Top-10-Romance-Manga-of-2024
 Top-10-Romance-Manga-of-2025
-Top-10-Romance-Manga-of-2026
 Top-10-Sci-Fi-Anime-of-1990
 Top-10-Sci-Fi-Anime-of-1991
 Top-10-Sci-Fi-Anime-of-1992
@@ -996,7 +970,6 @@ Top-10-Sci-Fi-Anime-of-2022
 Top-10-Sci-Fi-Anime-of-2023
 Top-10-Sci-Fi-Anime-of-2024
 Top-10-Sci-Fi-Anime-of-2025
-Top-10-Sci-Fi-Anime-of-2026
 Top-10-Sci-Fi-Manga-of-1990
 Top-10-Sci-Fi-Manga-of-1991
 Top-10-Sci-Fi-Manga-of-1992
@@ -1033,7 +1006,6 @@ Top-10-Sci-Fi-Manga-of-2022
 Top-10-Sci-Fi-Manga-of-2023
 Top-10-Sci-Fi-Manga-of-2024
 Top-10-Sci-Fi-Manga-of-2025
-Top-10-Sci-Fi-Manga-of-2026
 Top-10-Slice%20of%20Life-Anime-of-1990
 Top-10-Slice%20of%20Life-Anime-of-1991
 Top-10-Slice%20of%20Life-Anime-of-1992
@@ -1070,7 +1042,6 @@ Top-10-Slice%20of%20Life-Anime-of-2022
 Top-10-Slice%20of%20Life-Anime-of-2023
 Top-10-Slice%20of%20Life-Anime-of-2024
 Top-10-Slice%20of%20Life-Anime-of-2025
-Top-10-Slice%20of%20Life-Anime-of-2026
 Top-10-Slice%20of%20Life-Manga-of-1990
 Top-10-Slice%20of%20Life-Manga-of-1991
 Top-10-Slice%20of%20Life-Manga-of-1992
@@ -1107,7 +1078,6 @@ Top-10-Slice%20of%20Life-Manga-of-2022
 Top-10-Slice%20of%20Life-Manga-of-2023
 Top-10-Slice%20of%20Life-Manga-of-2024
 Top-10-Slice%20of%20Life-Manga-of-2025
-Top-10-Slice%20of%20Life-Manga-of-2026
 Top-10-Sports-Anime-of-1990
 Top-10-Sports-Anime-of-1991
 Top-10-Sports-Anime-of-1992
@@ -1144,7 +1114,6 @@ Top-10-Sports-Anime-of-2022
 Top-10-Sports-Anime-of-2023
 Top-10-Sports-Anime-of-2024
 Top-10-Sports-Anime-of-2025
-Top-10-Sports-Anime-of-2026
 Top-10-Sports-Manga-of-1990
 Top-10-Sports-Manga-of-1991
 Top-10-Sports-Manga-of-1992
@@ -1181,7 +1150,6 @@ Top-10-Sports-Manga-of-2022
 Top-10-Sports-Manga-of-2023
 Top-10-Sports-Manga-of-2024
 Top-10-Sports-Manga-of-2025
-Top-10-Sports-Manga-of-2026
 Top-10-Supernatural-Anime-of-1990
 Top-10-Supernatural-Anime-of-1991
 Top-10-Supernatural-Anime-of-1992
@@ -1218,7 +1186,6 @@ Top-10-Supernatural-Anime-of-2022
 Top-10-Supernatural-Anime-of-2023
 Top-10-Supernatural-Anime-of-2024
 Top-10-Supernatural-Anime-of-2025
-Top-10-Supernatural-Anime-of-2026
 Top-10-Supernatural-Manga-of-1990
 Top-10-Supernatural-Manga-of-1991
 Top-10-Supernatural-Manga-of-1992
@@ -1255,7 +1222,6 @@ Top-10-Supernatural-Manga-of-2022
 Top-10-Supernatural-Manga-of-2023
 Top-10-Supernatural-Manga-of-2024
 Top-10-Supernatural-Manga-of-2025
-Top-10-Supernatural-Manga-of-2026
 Top-10-Thriller-Anime-of-1990
 Top-10-Thriller-Anime-of-1991
 Top-10-Thriller-Anime-of-1992
@@ -1292,7 +1258,6 @@ Top-10-Thriller-Anime-of-2022
 Top-10-Thriller-Anime-of-2023
 Top-10-Thriller-Anime-of-2024
 Top-10-Thriller-Anime-of-2025
-Top-10-Thriller-Anime-of-2026
 Top-10-Thriller-Manga-of-1990
 Top-10-Thriller-Manga-of-1991
 Top-10-Thriller-Manga-of-1992
@@ -1329,7 +1294,6 @@ Top-10-Thriller-Manga-of-2022
 Top-10-Thriller-Manga-of-2023
 Top-10-Thriller-Manga-of-2024
 Top-10-Thriller-Manga-of-2025
-Top-10-Thriller-Manga-of-2026
 Top-50-Action-Anime-of-All-Time
 Top-50-Action-Manga-of-All-Time
 Top-50-Adventure-Anime-of-All-Time
