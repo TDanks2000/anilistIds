@@ -15,20 +15,34 @@ jobs:
       - name: get and parse id xmls
         shell: bash
         run: |
+          # Disable exit on error immediately
+          set +e
+
           fetch_sitemap() {
             local type=$1
             local output=$2
             local pattern=$3
+            
+            # Create/overwrite the file
             : > "$output"
+            
             local i=0
             while true; do
               local url="https://anilist.co/sitemap/${type}-${i}.xml"
               echo "Processing $url"
-              status=$(curl -o /dev/null -s -w "%{http_code}" "$url")
+              
+              # Capture http status. If curl fails completely, set status to 000
+              status=$(curl -o /dev/null -s -w "%{http_code}" "$url" || echo "000")
+              
               if [ "$status" != "200" ]; then
+                 echo "Status $status for $url - Stopping category."
                  break
               fi
-              content=$(curl -s "$url")
+
+              # Fetch content. If empty, default to empty string
+              content=$(curl -s "$url" || echo "")
+
+              # Process content. We append '|| true' to the whole pipeline
               if [ "$type" == "articles" ]; then
                  echo "$content" | grep -Eo "$pattern" | cut -d/ -f2 | sed 's/.$//' >> "$output" || true
               elif [[ "$type" == "staff" || "$type" == "characters" ]]; then
@@ -36,10 +50,12 @@ jobs:
               else
                  echo "$content" | grep -Eo "$pattern" | grep -Eo '([0-9]+)' >> "$output" || true
               fi
+              
               sleep 2
               ((i++))
             done
           }
+
           fetch_sitemap "manga" "manga_ids.txt" 'manga/([0-9]+)'
           fetch_sitemap "anime" "anime_ids.txt" 'anime/([0-9]+)'
           fetch_sitemap "staff" "staff_ids.txt" 'staff/([0-9]+)'
