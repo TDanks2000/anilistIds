@@ -2,79 +2,170 @@ name: FetchId
 
 on:
   schedule:
-    - cron: '0 */12 * * *'
+    - cron: "0 */12 * * *"
   workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: fetch-id
+  cancel-in-progress: false
 
 jobs:
   fetch:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
-      - name: get and parse id xmls
+      - name: Get and parse AniList sitemap IDs
         shell: bash
         run: |
-          # Disable exit on error immediately
-          set +e
+          set -Eeuo pipefail
+
+          MIN_KEEP_PERCENT=80
+          TMP_DIR="$(mktemp -d)"
+          trap 'rm -rf "$TMP_DIR"' EXIT
 
           fetch_sitemap() {
-            local type=$1
-            local output=$2
-            local pattern=$3
-            
-            # Create/overwrite the file
-            : > "$output"
-            
+            local sitemap_type="$1"
+            local output="$2"
+            local url_path="$3"
+            local mode="$4"
+
+            local tmp_output="$TMP_DIR/${output}.tmp"
             local i=0
+
+            : > "$tmp_output"
+
+            echo "Fetching ${sitemap_type} sitemap into ${output}"
+
             while true; do
-              local url="https://anilist.co/sitemap/${type}-${i}.xml"
+              local url="https://anilist.co/sitemap/${sitemap_type}-${i}.xml"
+              local body="$TMP_DIR/${sitemap_type}-${i}.xml"
+              local page_ids="$TMP_DIR/${sitemap_type}-${i}.ids"
+
               echo "Processing $url"
-              
-              # Capture http status. If curl fails completely, set status to 000
-              status=$(curl -o /dev/null -s -w "%{http_code}" "$url" || echo "000")
-              
-              if [ "$status" != "200" ]; then
-                 echo "Status $status for $url - Stopping category."
-                 break
-              fi
 
-              # Fetch content. If empty, default to empty string
-              content=$(curl -s "$url" || echo "")
+              http_code="$(
+                curl \
+                  --location \
+                  --silent \
+                  --show-error \
+                  --compressed \
+                  --connect-timeout 15 \
+                  --max-time 60 \
+                  --retry 3 \
+                  --retry-delay 5 \
+                  --retry-all-errors \
+                  --user-agent "FetchId GitHub Action (${GITHUB_REPOSITORY:-unknown})" \
+                  --output "$body" \
+                  --write-out "%{http_code}" \
+                  "$url"
+              )" || http_code="000"
 
-              # Process content. We append '|| true' to the whole pipeline
-              if [ "$type" == "articles" ]; then
-                 echo "$content" | grep -Eo "$pattern" | cut -d/ -f2 | sed 's/.$//' >> "$output" || true
-              elif [[ "$type" == "staff" || "$type" == "characters" ]]; then
-                 echo "$content" | grep -Eo "$pattern" | cut -d/ -f2 >> "$output" || true
+              case "$http_code" in
+                200)
+                  ;;
+                404)
+                  if (( i == 0 )); then
+                    echo "::error::Got 404 on first page for ${sitemap_type}. Refusing to update ${output}."
+                    return 1
+                  fi
+
+                  echo "Reached end of ${sitemap_type} sitemap at page ${i}."
+                  break
+                  ;;
+                000|401|403|408|425|429|5??)
+                  echo "::error::Got HTTP ${http_code} for ${url}. Refusing to update ${output}."
+                  return 1
+                  ;;
+                *)
+                  echo "::error::Unexpected HTTP ${http_code} for ${url}. Refusing to update ${output}."
+                  return 1
+                  ;;
+              esac
+
+              : > "$page_ids"
+
+              if [[ "$mode" == "slug" ]]; then
+                grep -Eo "/${url_path}/[^/<\"]+" "$body" \
+                  | cut -d/ -f3 \
+                  | sed 's/[?#].*$//' \
+                  >> "$page_ids" || true
               else
-                 echo "$content" | grep -Eo "$pattern" | grep -Eo '([0-9]+)' >> "$output" || true
+                grep -Eo "/${url_path}/[0-9]+" "$body" \
+                  | grep -Eo "[0-9]+" \
+                  >> "$page_ids" || true
               fi
-              
+
+              if [[ ! -s "$page_ids" ]]; then
+                echo "::error::No IDs parsed from ${url}. AniList format may have changed or the response may be invalid. Refusing to update ${output}."
+                return 1
+              fi
+
+              cat "$page_ids" >> "$tmp_output"
+
               sleep 2
               ((i++))
             done
+
+            if [[ ! -s "$tmp_output" ]]; then
+              echo "::error::Parsed output for ${output} is empty. Refusing to replace existing file."
+              return 1
+            fi
+
+            if [[ "$mode" == "slug" ]]; then
+              sort -u "$tmp_output" -o "$tmp_output"
+            else
+              sort -n -u "$tmp_output" -o "$tmp_output"
+            fi
+
+            local new_count
+            new_count="$(wc -l < "$tmp_output" | tr -d ' ')"
+
+            if [[ -f "$output" && -s "$output" ]]; then
+              local old_count
+              old_count="$(wc -l < "$output" | tr -d ' ')"
+
+              local min_allowed=$(( old_count * MIN_KEEP_PERCENT / 100 ))
+
+              if (( new_count < min_allowed )); then
+                echo "::error::New ${output} has only ${new_count} lines, old file had ${old_count}. Refusing suspicious shrink."
+                return 1
+              fi
+            fi
+
+            mv "$tmp_output" "$output"
+            echo "Updated ${output} with ${new_count} entries."
           }
 
-          fetch_sitemap "manga" "manga_ids.txt" 'manga/([0-9]+)'
-          fetch_sitemap "anime" "anime_ids.txt" 'anime/([0-9]+)'
-          fetch_sitemap "staff" "staff_ids.txt" 'staff/([0-9]+)'
-          fetch_sitemap "characters" "character_ids.txt" 'character/([0-9]+)'
-          fetch_sitemap "articles" "articles_ids.txt" 'article/([^/]+)'
+          fetch_sitemap "manga" "manga_ids.txt" "manga" "numeric"
+          fetch_sitemap "anime" "anime_ids.txt" "anime" "numeric"
+          fetch_sitemap "staff" "staff_ids.txt" "staff" "numeric"
+          fetch_sitemap "characters" "character_ids.txt" "character" "numeric"
+          fetch_sitemap "articles" "articles_ids.txt" "article" "slug"
 
       - name: Commit files
+        shell: bash
         run: |
+          set -Eeuo pipefail
+
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git config user.name "github-actions[bot]"
-          git add .
-          if [ -n "$(git status --porcelain)" ]; then
-            git commit -m "Update ids" -a
-          else
-            echo "No changes"
-          fi
 
-      - name: Push changes
-        uses: ad-m/github-push-action@master
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          branch: ${{ github.ref }}
+          git add \
+            manga_ids.txt \
+            anime_ids.txt \
+            staff_ids.txt \
+            character_ids.txt \
+            articles_ids.txt
+
+          if git diff --cached --quiet; then
+            echo "No changes"
+          else
+            git commit -m "Update ids"
+            git push
+          fi
