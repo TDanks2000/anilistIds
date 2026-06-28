@@ -25,9 +25,16 @@ jobs:
         run: |
           set -Eeuo pipefail
 
-          MIN_KEEP_PERCENT=80
           TMP_DIR="$(mktemp -d)"
           trap 'rm -rf "$TMP_DIR"' EXIT
+
+          MIN_KEEP_PERCENT=80
+
+          warn_and_skip() {
+            echo "::warning::$1"
+            echo "FETCH_SKIPPED=true" >> "$GITHUB_ENV"
+            exit 0
+          }
 
           fetch_sitemap() {
             local sitemap_type="$1"
@@ -35,17 +42,18 @@ jobs:
             local url_path="$3"
             local mode="$4"
 
-            local tmp_output="$TMP_DIR/${output}.tmp"
+            local tmp_output="$TMP_DIR/$output"
             local i=0
 
             : > "$tmp_output"
 
-            echo "Fetching ${sitemap_type} sitemap into ${output}"
+            echo "Fetching $sitemap_type sitemap..."
 
             while true; do
               local url="https://anilist.co/sitemap/${sitemap_type}-${i}.xml"
               local body="$TMP_DIR/${sitemap_type}-${i}.xml"
               local page_ids="$TMP_DIR/${sitemap_type}-${i}.ids"
+              local http_code
 
               echo "Processing $url"
 
@@ -71,29 +79,38 @@ jobs:
                   ;;
                 404)
                   if (( i == 0 )); then
-                    echo "::error::Got 404 on first page for ${sitemap_type}. Refusing to update ${output}."
-                    return 1
+                    warn_and_skip "Got 404 on the first page for $sitemap_type. Skipping update to avoid wiping $output."
                   fi
 
-                  echo "Reached end of ${sitemap_type} sitemap at page ${i}."
+                  echo "Reached end of $sitemap_type sitemap at page $i."
                   break
                   ;;
-                000|401|403|408|425|429|5??)
-                  echo "::error::Got HTTP ${http_code} for ${url}. Refusing to update ${output}."
-                  return 1
+                000)
+                  warn_and_skip "Curl/network failure while fetching $url. Skipping update."
+                  ;;
+                401|403)
+                  warn_and_skip "Got HTTP $http_code for $url. AniList may be blocking the request. Skipping update."
+                  ;;
+                408|425|429)
+                  warn_and_skip "Got HTTP $http_code for $url. Request was likely rate limited or timed out. Skipping update."
+                  ;;
+                5??)
+                  warn_and_skip "Got HTTP $http_code for $url. AniList/server issue. Skipping update."
                   ;;
                 *)
-                  echo "::error::Unexpected HTTP ${http_code} for ${url}. Refusing to update ${output}."
-                  return 1
+                  warn_and_skip "Unexpected HTTP $http_code for $url. Skipping update."
                   ;;
               esac
+
+              if [[ ! -s "$body" ]]; then
+                warn_and_skip "Empty response body for $url. Skipping update."
+              fi
 
               : > "$page_ids"
 
               if [[ "$mode" == "slug" ]]; then
-                grep -Eo "/${url_path}/[^/<\"]+" "$body" \
+                grep -Eo "/${url_path}/[^/<\"?#]+" "$body" \
                   | cut -d/ -f3 \
-                  | sed 's/[?#].*$//' \
                   >> "$page_ids" || true
               else
                 grep -Eo "/${url_path}/[0-9]+" "$body" \
@@ -102,8 +119,7 @@ jobs:
               fi
 
               if [[ ! -s "$page_ids" ]]; then
-                echo "::error::No IDs parsed from ${url}. AniList format may have changed or the response may be invalid. Refusing to update ${output}."
-                return 1
+                warn_and_skip "No IDs parsed from $url. Sitemap format may have changed. Skipping update."
               fi
 
               cat "$page_ids" >> "$tmp_output"
@@ -113,8 +129,7 @@ jobs:
             done
 
             if [[ ! -s "$tmp_output" ]]; then
-              echo "::error::Parsed output for ${output} is empty. Refusing to replace existing file."
-              return 1
+              warn_and_skip "Parsed output for $output is empty. Skipping update."
             fi
 
             if [[ "$mode" == "slug" ]]; then
@@ -133,13 +148,11 @@ jobs:
               local min_allowed=$(( old_count * MIN_KEEP_PERCENT / 100 ))
 
               if (( new_count < min_allowed )); then
-                echo "::error::New ${output} has only ${new_count} lines, old file had ${old_count}. Refusing suspicious shrink."
-                return 1
+                warn_and_skip "New $output has only $new_count lines, old file had $old_count. Suspicious shrink, skipping update."
               fi
             fi
 
-            mv "$tmp_output" "$output"
-            echo "Updated ${output} with ${new_count} entries."
+            echo "Prepared $output with $new_count entries."
           }
 
           fetch_sitemap "manga" "manga_ids.txt" "manga" "numeric"
@@ -148,7 +161,16 @@ jobs:
           fetch_sitemap "characters" "character_ids.txt" "character" "numeric"
           fetch_sitemap "articles" "articles_ids.txt" "article" "slug"
 
+          echo "All sitemap fetches completed successfully. Replacing output files."
+
+          cp "$TMP_DIR/manga_ids.txt" manga_ids.txt
+          cp "$TMP_DIR/anime_ids.txt" anime_ids.txt
+          cp "$TMP_DIR/staff_ids.txt" staff_ids.txt
+          cp "$TMP_DIR/character_ids.txt" character_ids.txt
+          cp "$TMP_DIR/articles_ids.txt" articles_ids.txt
+
       - name: Commit files
+        if: env.FETCH_SKIPPED != 'true'
         shell: bash
         run: |
           set -Eeuo pipefail
@@ -167,5 +189,16 @@ jobs:
             echo "No changes"
           else
             git commit -m "Update ids"
+          fi
+
+      - name: Push changes
+        if: env.FETCH_SKIPPED != 'true'
+        shell: bash
+        run: |
+          set -Eeuo pipefail
+
+          if git log --format=%B -n 1 | grep -q "Update ids"; then
             git push
+          else
+            echo "Nothing to push"
           fi
