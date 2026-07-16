@@ -15,6 +15,7 @@ concurrency:
 jobs:
   fetch:
     runs-on: ubuntu-latest
+    timeout-minutes: 30
 
     steps:
       - name: Checkout
@@ -125,7 +126,7 @@ jobs:
               cat "$page_ids" >> "$tmp_output"
 
               sleep 2
-              ((i++))
+              i=$((i + 1))
             done
 
             if [[ ! -s "$tmp_output" ]]; then
@@ -189,16 +190,12 @@ jobs:
             echo "No changes"
           else
             git commit -m "Update ids"
+            echo "DID_COMMIT=true" >> "$GITHUB_ENV"
           fi
 
       - name: Push changes
-        if: env.FETCH_SKIPPED != 'true'
+        if: env.FETCH_SKIPPED != 'true' && env.DID_COMMIT == 'true'
         shell: bash
         run: |
           set -Eeuo pipefail
-
-          if git log --format=%B -n 1 | grep -q "Update ids"; then
-            git push
-          else
-            echo "Nothing to push"
-          fi
+          git push
