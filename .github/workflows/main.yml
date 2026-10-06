@@ -29,8 +29,6 @@ jobs:
           TMP_DIR="$(mktemp -d)"
           trap 'rm -rf "$TMP_DIR"' EXIT
 
-          MIN_KEEP_PERCENT=80
-
           warn_and_skip() {
             echo "::warning::$1"
             echo "FETCH_SKIPPED=true" >> "$GITHUB_ENV"
@@ -142,17 +140,7 @@ jobs:
             local new_count
             new_count="$(wc -l < "$tmp_output" | tr -d ' ')"
 
-            if [[ -f "$output" && -s "$output" ]]; then
-              local old_count
-              old_count="$(wc -l < "$output" | tr -d ' ')"
-
-              local min_allowed=$(( old_count * MIN_KEEP_PERCENT / 100 ))
-
-              if (( new_count < min_allowed )); then
-                warn_and_skip "New $output has only $new_count lines, old file had $old_count. Suspicious shrink, skipping update."
-              fi
-            fi
-
+            # AniList can remove entries, so a smaller valid sitemap is expected.
             echo "Prepared $output with $new_count entries."
           }
 
